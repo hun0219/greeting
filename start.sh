@@ -21,8 +21,10 @@ set +e  # so "at now" will run even if java -jar fails
 #LOG_DIR="logs"
 
 # 1분 후에 애플리케이션 실행 (at now + 1 min)
-nohup java \
-       -jar build/libs/greeting-0.0.1-SNAPSHOT.jar & | at now
+#nohup java \
+#       -jar build/libs/greeting-0.0.1-SNAPSHOT.jar & | at now
+
+echo "java -jar $(ls | grep greeting-0.0.1-SNAPSHOT.jar | head -n 1)" | at now
 
 echo "> Application started with PID $!"
 # PID 파일 기록
