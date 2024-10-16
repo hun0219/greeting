@@ -1,1 +1,13 @@
-<p th:text="${name}"></p>
+<!-- <div th:each="name: ${peopleStack}" td th:text="${name}"></div> -->
+
+<!-- 결과에 개행 생김 <p> -->
+<!--
+<p th:each="n : ${names}">
+    <span th:text="${n}"></span>
+</p>-->
+
+
+<div th:each="person : ${peopleStack}">
+    <!-- <p>Name: <span th:text="${person.num}"></span>, <span th:text="${person.name}"></span></p> -->
+    <span th:text="${person.num}"></span>, <span th:text="${person.name}"></span>
+</div>
