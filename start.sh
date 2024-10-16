@@ -17,14 +17,15 @@
 set +e  # so "at now" will run even if java -jar fails
 
 # JAR 파일 경로 및 로그 디렉토리 설정
-JAR_PATH="build/libs/greeting-0.0.1-SNAPSHOT.jar"
-LOG_DIR="logs"
+#JAR_PATH="build/libs/greeting-0.0.1-SNAPSHOT.jar"
+#LOG_DIR="logs"
 
 # 1분 후에 애플리케이션 실행 (at now + 1 min)
-echo "nohup java -jar $JAR_PATH > $LOG_DIR/app.log 2>&1 &" | at now
+nohup java \
+       -jar build/libs/greeting-0.0.1-SNAPSHOT.jar & | at now
 
+echo "> Application started with PID $!"
 # PID 파일 기록
-echo $! > $LOG_DIR/app.pid
+#echo $! > $LOG_DIR/app.pid
 
 # 애플리케이션 시작 메시지 출력
-echo "> Application will start in 1 minute with PID $(cat $LOG_DIR/app.pid)"
