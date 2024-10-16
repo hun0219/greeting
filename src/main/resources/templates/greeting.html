@@ -1,1 +1,8 @@
-<p th:text="${name}"></p>
+ <!-- 결과에 개행 생김 <p> -->
+    <div th:each="name: ${names}" td th:text="${name}"></div>
+    
+    <!--
+    <p th:each="n : ${names}">
+        <span th:text="${n}"></span>
+    </p>
+    -->

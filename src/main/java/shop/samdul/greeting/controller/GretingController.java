@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class GreetingController {
+public class GretingController {
+
+    Stack<String> names = new Stack<>();
 
     @GetMapping("/greeting")
     public String greeting(
@@ -17,10 +19,11 @@ public class GreetingController {
                     defaultValue="HI"   // name 안주면 HI 출력            
                     ) String name, Model model) {
                         
-            Stack<String> names = new Stack<>();
             names.push(name);
 
-            model.addAttribute("name", name);
+            //model.addAttribute("name", name);
+            // 스택 전체를 모델에 추가하여 뷰에서 사용할 수 있도록
+            model.addAttribute("names", names);
 
         return "greeting";
     }
