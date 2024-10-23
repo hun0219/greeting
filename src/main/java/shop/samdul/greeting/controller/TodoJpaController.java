@@ -23,7 +23,7 @@ public class TodoJpaController{
 	TodoService TodoJpaService todojpaService;
 	
 	@Autowired
-	public TodoJpaController(TodoJpaService todojpaService) {
+	public TodoJpaController(TodoJpaService todoJpaService) {
 		this.TodoJpaService = todoJpaService;
 	}
 
