@@ -1,40 +1,53 @@
 package shop.samdul.greeting.service;
 
+//import org.glassfish.jaxb.core.v2.runtime.IllegalAnnotationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import shop.samdul.greeting.entity.TodoEntity;
-import shop.samdul.greeting.mapper.TodoMapper;
+//import shop.samdul.greeting.mapper.TodoMapper;
+import shop.samdul.greeting.repository.TodoRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TodoJpaService {
+    private final TodoRepository todoRepository;
 
 	@Autowired
-	TodoMapper todoMapper;
+    public TodoJpaService(TodoRepository todoRepository){
+        this.todoRepository = todoRepository;
+    }
 
-	public List<TodoEntity> getTodos() {
-		System.out.println("[service] findAll");
-		List<TodoEntity> todos = todoMapper.findAll();
-		System.out.println("[todos]:" + todos.size());
-		return todos;
+	public List<TodoEntity> getAllTodos() {
+        return todoRepository.findAll();
 	}
 
-    public TodoEntity findById(Integer id) {
-        return todoMapper.findById(id);
+    public Optional<TodoEntity> getTodoById(Integer id) {
+        return todoRepository.findById(id);
     }
 
-    public void createTodo(TodoEntity todoEntity) {
-        todoMapper.insertTodo(todoEntity.getSubject(), todoEntity.getBody(), todoEntity.getCompleted());
+    public TodoEntity createTodo(TodoEntity todoEntity) {
+        return todoRepository.save(todoEntity);
     }
 
-    public void updateTodoById(Integer id, TodoEntity todoEntity) {
-        todoEntity.setId(id);
-        todoMapper.updateTodoById(todoEntity);
+    public TodoEntity updateTodoById(Integer id, TodoEntity todoEntity) {
+        Optional<TodoEntity> existingTodoOpt = todoRepository.findById(id);
+
+        if (existingTodoOpt.isPresent()) {
+            TodoEntity existingTodo = existingTodoOpt.get();
+                existingTodo.setSubject(todoEntity.getSubject());
+                existingTodo.setBody(todoEntity.getBody());
+                existingTodo.setCompleted(todoEntity.getCompleted());
+            return todoRepository.save(existingTodo);
+        }
+        else {
+            throw new IllegalArgumentException("Todo with id" + "id" + "not found");
+        }
     }
 
     public void deleteTodoById(Integer id) {
-        todoMapper.deleteTodoById(id);
+        todoRepository.deleteById(id);
     }
 }
