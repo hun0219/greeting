@@ -16,17 +16,19 @@
         WHERE id = #{id};
     </select>
 
-    <insert id="insert" parameterType="shop.samdul.greeting.entity.TodoEntity">
-        INSERT INTO ENCORE_TODO_TBL (subject, body, completed) VALUES (#{subject}, #{body}, #{completed})
+    <insert id="insertTodo">
+        INSERT INTO ENCORE_TODO_TBL (subject, body, completed)
+        VALUES (#{subject}, #{body}, #{completed})
     </insert>
 
-    <update id="update" parameterType="shop.samdul.greeting.entity.TodoEntity">
+    <update id="updateTodoById">
         UPDATE ENCORE_TODO_TBL
         SET subject = #{subject}, body = #{body}, completed = #{completed}
         WHERE id = #{id}
     </update>
 
-    <delete id="delete" parameterType="Integer">
-        DELETE FROM ENCORE_TODO_TBL WHERE id = #{id}
+    <delete id="deleteTodoById">
+        DELETE FROM ENCORE_TODO_TBL
+        WHERE id = #{id}
     </delete>
 </mapper>

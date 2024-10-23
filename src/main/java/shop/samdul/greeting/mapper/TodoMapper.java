@@ -9,7 +9,7 @@ public interface TodoMapper {
     List<TodoEntity> findAll();
 
     TodoEntity findById(Integer id);
-    void insert(TodoEntity todoEntity);
-    void update(TodoEntity todoEntity);
-    void delete(Integer id);
+    void insertTodo(String subject, String body, Boolean completed);
+    void updateTodoById(TodoEntity todoEntity);
+    void deleteTodoById(Integer id);
 }

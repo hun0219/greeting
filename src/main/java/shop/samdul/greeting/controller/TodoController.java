@@ -35,20 +35,19 @@ public class TodoController{
 
 	//C - INSERT
     @PostMapping("/todos")
-    public void insert(@RequestBody TodoEntity todoEntity) {
-        todoService.insert(todoEntity);
+    public void createTodo(@RequestBody TodoEntity todoEntity) {
+        todoService.createTodo(todoEntity);
     }
     
 	//U - UPDATE
     @PutMapping("/todos/{id}")
-    public void update(@PathVariable Integer id, @RequestBody TodoEntity todoEntity) {
-        todoEntity.setId(id);
-        todoService.update(todoEntity);
+    public void updateTodo(@PathVariable Integer id, @RequestBody TodoEntity todoEntity) {
+        todoService.updateTodoById(id, todoEntity);
     }
 
 	//D - DELETE
     @DeleteMapping("/todos/{id}")
-    public void delete(@PathVariable Integer id) {
-        todoService.delete(id);
+    public void deleteTodo(@PathVariable Integer id) {
+        todoService.deleteTodoById(id);
     }
 }
