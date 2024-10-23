@@ -20,21 +20,12 @@ public class TodoService {
             System.out.println("[todos]:" + todos.size());
             return todos;
     }
+
     public TodoEntity findById(Integer id) {
-        System.out.println("[Service] findById: " + id);
-        TodoEntity byid = todoMapper.findById(id);
-        if (byid != null) {
-            System.out.println("[Service] Todo 찾음: " + byid.getId());
-        } else {
-            System.out.println("[Service] 해당 id로 Todo를 찾을 수 없음: " + id);
-        }
-        return byid;
+        return todoMapper.findById(id);
     }
 
-    // public List<TodoEntity> findById(){
-    //         System.out.println("[service] findAll");
-    //         List<TodoEntity> byid = todoMapper.findAll();
-    //         System.out.println("[todos]:" + byid.size());
-    //         return byid;
-    // }
+    public TodoEntity findByCompleted(Boolean completed) {
+        return todoMapper.findByCompleted(completed);
+    }
 }

@@ -16,16 +16,27 @@ public class TodoController {
     @Autowired
     TodoService todoService;
 
-    @GetMapping("/list")
-    public List<TodoEntity> list() {
-            System.out.println("[Controller]");
-            List<TodoEntity> r = todoService.getTodos();
-            return r;
-    }
+	@GetMapping("/todos")
+	public List<TodoEntity> list() {
+		System.out.println("[Controller]");
+		java.util.List<TodoEntity> r = todoService.getTodos();
+		return r;	
+	}
+	
+	@GetMapping("/todos/{id}")
+	public TodoEntity find(@PathVariable Integer id) {
+		TodoEntity r = todoService.findById(id);
+		return r;
+	}
 
-    @GetMapping("/todos/{id}")
-    public TodoEntity find(@PathVariable Integer id){
-            TodoEntity r = todoService.findById(id);
-            return r;
+    @GetMapping("/todos/{completed}")
+    public TodoEntity find(@PathVariable  private Boolean completed) {
+        TodoEntity r = todoService.findByCompleted(completed);
+        return r;
     }
+	//C
+
+	//U
+
+	//D
 }

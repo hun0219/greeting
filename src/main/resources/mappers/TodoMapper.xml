@@ -8,4 +8,12 @@
                 FROM ENCORE_TODO_TBL
                 ORDER BY id DESC
         </select>
+        
+        <select id="findById" parameterType="int" resultType="shop.samdul.greeting.entity.TodoEntity">
+        SELECT
+					id, subject, body, completed
+				FROM ENCORE_TODO_TBL 
+				WHERE id = #{id};
+    </select>
+</mapper>
 </mapper>
