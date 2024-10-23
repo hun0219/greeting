@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import shop.samdul.greeting.service.TodoJpaService;
-import shop.samdul.greeting.service.TodoService;
+//import shop.samdul.greeting.service.TodoService;
 import shop.samdul.greeting.entity.TodoEntity;
 
 import java.util.List;
@@ -42,7 +42,7 @@ public class TodoJpaController{
 			return optionalTodo.get();
 		}
 		else {
-			throw new IllegalArgumentException("Todo with id" + id + "not found")
+			throw new IllegalArgumentException("Todo with id" + id + "not found");
 		}	
 	}
 
