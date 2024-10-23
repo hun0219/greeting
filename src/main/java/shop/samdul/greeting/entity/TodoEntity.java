@@ -13,5 +13,4 @@ public class TodoEntity {
     private String subject;
     private String body;
     private Boolean completed;
-
 }

@@ -15,4 +15,18 @@
                 FROM ENCORE_TODO_TBL 
                 WHERE id = #{id};
         </select>
+
+         <insert id="insert" parameterType="shop.samdul.greeting.entity.TodoEntity">
+                INSERT INTO todos (subject, body, completed) VALUES (#{subject}, #{body}, #{completed})
+        </insert>
+
+        <update id="update" parameterType="shop.samdul.greeting.entity.TodoEntity">
+                UPDATE todos
+                SET subject = #{subject}, body = #{body}, completed = #{completed}
+                WHERE id = #{id}
+        </update>
+
+        <delete id="delete" parameterType="Integer">
+                DELETE FROM todos WHERE id = #{id}
+        </delete>
 </mapper>

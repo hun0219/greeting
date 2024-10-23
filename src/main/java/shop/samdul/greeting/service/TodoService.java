@@ -3,6 +3,8 @@ package shop.samdul.greeting.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.databind.deser.std.NumberDeserializers.IntegerDeserializer;
+
 import shop.samdul.greeting.entity.TodoEntity;
 import shop.samdul.greeting.mapper.TodoMapper;
 
@@ -21,7 +23,19 @@ public class TodoService {
 		return todos;
 	}
 
-  public TodoEntity findById(Integer id) {
-    return todoMapper.findById(id);
-  }
+    public TodoEntity findById(Integer id) {
+        return todoMapper.findById(id);
+    }
+
+    public void insert(TodoEntity todoEntity) {
+        todoMapper.insert(todoEntity);
+    }
+
+    public void update(TodoEntity todoEntity) {
+        todoMapper.update(todoEntity);
+    }
+
+    public void delete(Integer id) {
+        todoMapper.delete(id);
+    }
 }
