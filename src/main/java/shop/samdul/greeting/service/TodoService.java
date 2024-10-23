@@ -21,11 +21,11 @@ public class TodoService {
             return todos;
     }
 
-    public TodoEntity findById(Integer id) {
-        return todoMapper.findById(id);
-    }
+    // public TodoEntity findById(Integer id) {
+    //     return todoMapper.findById(id);
+    // }
 
-    public TodoEntity findByCompleted(Boolean completed) {
-        return todoMapper.findByCompleted(completed);
-    }
+    // public TodoEntity findByCompleted(Boolean completed) {
+    //     return todoMapper.findByCompleted(completed);
+    // }
 }
