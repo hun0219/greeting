@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.experimental.Delegate;
 import shop.samdul.greeting.service.TodoService;
 import shop.samdul.greeting.entity.TodoEntity;
 
@@ -36,8 +35,8 @@ public class TodoController{
 
 	//C - INSERT
     @PostMapping("/todos")
-    public void insert(@RequestBody TodoEntity todo) {
-        todoService.insert(todo);
+    public void insert(@RequestBody TodoEntity todoEntity) {
+        todoService.insert(todoEntity);
     }
     
 	//U - UPDATE

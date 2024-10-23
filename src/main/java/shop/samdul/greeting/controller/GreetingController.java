@@ -1,5 +1,4 @@
 package shop.samdul.greeting.controller;
-import shop.samdul.greeting.controller.People;
 import java.util.Stack;
 
 import org.springframework.stereotype.Controller;
