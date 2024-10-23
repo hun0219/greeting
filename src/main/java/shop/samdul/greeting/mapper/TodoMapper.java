@@ -7,6 +7,6 @@ import java.util.List;
 @Mapper
 public interface TodoMapper {
     List<TodoEntity> findAll();
-    // TodoEntity findById(Integer id); // id
-    // TodoEntity findByCompleted(Boolean completed); // completed
+
+    TodoEntity findById(Integer id);
 }

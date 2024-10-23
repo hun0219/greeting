@@ -11,21 +11,17 @@ import java.util.List;
 @Service
 public class TodoService {
 
-    @Autowired
-    TodoMapper todoMapper;
+	@Autowired
+	TodoMapper todoMapper;
 
-    public List<TodoEntity> getTodos(){
-            System.out.println("[service] findAll");
-            List<TodoEntity> todos = todoMapper.findAll();
-            System.out.println("[todos]:" + todos.size());
-            return todos;
-    }
+	public List<TodoEntity> getTodos() {
+		System.out.println("[service] findAll");
+		List<TodoEntity> todos = todoMapper.findAll();
+		System.out.println("[todos]:" + todos.size());
+		return todos;
+	}
 
-    // public TodoEntity findById(Integer id) {
-    //     return todoMapper.findById(id);
-    // }
-
-    // public TodoEntity findByCompleted(Boolean completed) {
-    //     return todoMapper.findByCompleted(completed);
-    // }
+  public TodoEntity findById(Integer id) {
+    return todoMapper.findById(id);
+  }
 }
